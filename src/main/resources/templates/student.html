@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="common/header :: head"></head>
 
@@ -262,7 +265,7 @@
                                     <div class="font-weight-bold">
                                         <div class="text-truncate">Hi there! I am wondering if you can help me with a
                                             problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                        <div class="small text-gray-500">Emily Fowler Â· 58m</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" th:href="@{#}">
@@ -274,7 +277,7 @@
                                     <div>
                                         <div class="text-truncate">I have the photos that you ordered last month, how
                                             would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                        <div class="small text-gray-500">Jae Chun Â· 1d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" th:href="@{#}">
@@ -286,7 +289,7 @@
                                     <div>
                                         <div class="text-truncate">Last month's report looks great, I am very happy with
                                             the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                        <div class="small text-gray-500">Morgan Alvarez Â· 2d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" th:href="@{#}">
@@ -298,7 +301,7 @@
                                     <div>
                                         <div class="text-truncate">Am I a good boy? The reason I ask is because someone
                                             told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                        <div class="small text-gray-500">Chicken the Dog Â· 2w</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" th:href="@{#}">Read More Messages</a>
@@ -355,11 +358,13 @@
                             <div class="text-center">
                                 <h1 class="h3 text-gray-900 mb-4">Student Information</h1>
                             </div>
-                            <form  action="#" th:action="@{/student}" method="POST">
+                            <form  action="#" th:object="${student}" th:action="@{/student}" method="POST">
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" name="first_name"
+                                    <div class="col-sm-6 mb-3 mb-sm-0"> 
+                                    	
+                                        <input type="text"  class="form-control form-control-user" id="first_name"   name="first_name"
                                             placeholder="First Name">
+                                         
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" id="exampleLastName" name="last_name"
@@ -391,44 +396,7 @@
                         
                 </div>
                     
-               <div class="p-5">
-                <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Student Information</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Class</th>
-                                            <th>Roll</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </thead>
-                                  
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                        </tr>  
-                                        <tr th:each="student : ${student}">             
-								            <td th:text="${student.first_name}${student.last_name}"></td>
-								            <td th:text="${student.calss_name}"></td>
-								            <td th:text="${student.roll}"></td>
-								            <td th:text="${student.email}"></td>
-								       </tr>
-                                        <!-- th:each="book : ${books}" -->
-                                 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
+          
                 <!-- /.container-fluid -->
 				</div>
             </div>
@@ -463,7 +431,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true">Ã—</span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

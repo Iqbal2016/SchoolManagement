@@ -12,13 +12,5 @@ public class SchoolManagementApplication {
 		SpringApplication.run(SchoolManagementApplication.class, args);
 	}
 	
-	/*
-	 * @Configuration public class DefaultView extends WebMvcConfigurerAdapter{
-	 * 
-	 * @Override public void addViewControllers( ViewControllerRegistry registry ) {
-	 * registry.addViewController( "/" ).setViewName( "forward:/sb-admin/index.html"
-	 * ); registry.setOrder( Ordered.HIGHEST_PRECEDENCE ); super.addViewControllers(
-	 * registry ); } }
-	 */
 
 }

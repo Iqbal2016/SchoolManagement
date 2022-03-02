@@ -22,6 +22,9 @@ public class StudentServiceImpl implements StudentService{
 	@Autowired
 	StudentRepository studentRepository;
 
+	/*****************************************
+	 *  Store employee
+	 ******************************************/
 	@Override
 	public void saveStudent(Student student) {
 		student.setCreatedDate(Utility.getCurrentTimeStamp());
@@ -34,10 +37,13 @@ public class StudentServiceImpl implements StudentService{
 	public Student findUserByEmail(String email) {
 		 return studentRepository.findUserByEmail(email);
 	}
-
+	
+	/*****************************************
+	 *  Get Students List
+	 ******************************************/
+	
 	@Override
 	public List<Student> getStudentList() {
-		// TODO Auto-generated method stub
 		return studentRepository.findAll();
 	}
 

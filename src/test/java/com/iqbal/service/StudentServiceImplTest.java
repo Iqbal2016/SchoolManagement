@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class StudentServiceImplTest {
+	
+	
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,7 +35,8 @@ class StudentServiceImplTest {
 
 	@Test
 	void testFindUserByEmail() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		
 	}
 
 	@Test

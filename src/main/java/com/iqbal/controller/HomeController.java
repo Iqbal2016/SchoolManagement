@@ -3,11 +3,15 @@
  */
 package com.iqbal.controller;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +30,10 @@ public class HomeController {
 	
 	@Autowired
 	StudentService studentService;
+	
+	/*****************************************
+	 *  Landing Page
+	 ******************************************/
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView viewPage() {
@@ -34,15 +42,23 @@ public class HomeController {
 		return new ModelAndView("index.html");
 	}
 
+	/*****************************************
+	 *  Create Student Page
+	 ******************************************/
 
 	@RequestMapping(value = "/student", method = RequestMethod.GET)
-	public ModelAndView student() {
-
+	public ModelAndView student(Map<String, Object> model) {
+		List<Student> student = studentService.getStudentList();
+		model.put("student", student);
 		return new ModelAndView("student");
 	}
 	
+	/*****************************************
+	 *  Store Student
+	 ******************************************/
+	
 	@RequestMapping(value = "/student", method = RequestMethod.POST)
-	public ModelAndView createNewUser(@Validated Student student, BindingResult bindingResult) {
+	public ModelAndView createNewUser(@Valid Student student, BindingResult bindingResult, Model model) {
 		ModelAndView modelAndView = new ModelAndView();
 		Student userExists = studentService.findUserByEmail(student.getEmail());
 		if (userExists != null) {
@@ -59,14 +75,28 @@ public class HomeController {
 			modelAndView.setViewName("student");
 			
 		}
-		return modelAndView;
+		
+		//return modelAndView;
+		return new ModelAndView("redirect:/studentList");
 	}
 	
+	/*****************************************
+	 *  Get Students List
+	 ******************************************/
+	
 	@RequestMapping(value = "/studentList", method = RequestMethod.GET)
-	public List<Student> getStudentList() {
-		
+	public ModelAndView getStudentList(Map<String, Object> model ) {
+		ModelAndView modelAndView = new ModelAndView();
 		List<Student> student = studentService.getStudentList();
-		return student;
+		for (Iterator iterator = student.iterator(); iterator.hasNext();) {
+			 System.out.println(iterator.next());
+			
+		}
+	
+		modelAndView.addObject("student", student);
+		modelAndView.setViewName("viewStudent");
+		//return new ModelAndView("redirect:/studentList");
+		return modelAndView;
 		
 	}
 
