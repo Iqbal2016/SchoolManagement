@@ -5,4 +5,4 @@
  * @author TCS
  *
  */
-package com.iqbal.dao;
+package com.iqbal.repository;

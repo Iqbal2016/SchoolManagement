@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iqbal.bean.Utility;
-import com.iqbal.dao.StudentRepository;
 import com.iqbal.entity.Student;
+import com.iqbal.repository.StudentRepository;
 
 /**
  * @author TCS
